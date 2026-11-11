@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import styles from './Menu.module.css';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { WHATSAPP } from '../../config/contact';
 import logo from '../../images/ChatGPT Image 27_09_2026, 09_08_16.png';
 
@@ -13,9 +13,9 @@ export default function Menu() {
   return (
     <div className={styles.Container}>
       <div className={styles.menuContainer}>
-        <div className={styles.Logo}>
+        <Link to="/" className={styles.Logo} onClick={close} aria-label="Ir para a página inicial">
           <img src={logo} alt="Logo" className={styles.LogoImage} />
-        </div>
+        </Link>
 
         <button
           className={`${styles.burger} ${open ? styles.burgerOpen : ''}`}

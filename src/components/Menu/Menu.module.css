@@ -16,6 +16,7 @@
 
 .Logo{
 
+    display: block;
     width: 220px;
     margin-left: 70px;
 }
@@ -50,11 +51,6 @@
     transition: transform 0.2s ease, color 0.2s ease, background-color 0.2s ease;
     padding: 10px 22px;
     border-radius: 999px;
-}
-
-.link {
-        
-    
 }
 
 .active {
