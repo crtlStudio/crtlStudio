@@ -1,0 +1,423 @@
+.page {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 64px 20px 80px;
+}
+
+/* Linha fina usada para separar os itens da lista */
+:root {
+  --svc-line: rgba(255, 255, 255, 0.1);
+}
+
+/* ===== Introdução ===== */
+.intro {
+  text-align: center;
+  max-width: 560px;
+  margin: 0 auto 40px;
+}
+
+.eyebrow {
+  display: inline-block;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #6ea8ff;
+  margin-bottom: 10px;
+}
+
+.intro h1 {
+  font-size: clamp(1.5rem, 3.4vw, 2.1rem);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  margin-bottom: 10px;
+}
+
+.intro p {
+  font-size: 0.92rem;
+  font-weight: 300;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* Atalhos: sempre numa só linha; se não couberem, deslizam na horizontal */
+.jump {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 6px;
+  width: fit-content;
+  max-width: 100%;
+  margin: 22px auto 0;
+  padding: 2px;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  -webkit-overflow-scrolling: touch;
+  scroll-snap-type: x proximity;
+  scrollbar-width: none;
+}
+
+.jump::-webkit-scrollbar {
+  display: none;
+}
+
+.jump a {
+  flex: 0 0 auto;
+  white-space: nowrap;
+  scroll-snap-align: start;
+  font-size: 0.8rem;
+  color: #fff;
+  text-decoration: none;
+  padding: 7px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.jump a:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(110, 168, 255, 0.5);
+}
+
+/* ===== Serviços principais (colunas lado a lado) ===== */
+.mainList {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-top: 1px solid var(--svc-line);
+  border-bottom: 1px solid var(--svc-line);
+}
+
+.service {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding: 28px 24px;
+  scroll-margin-top: 24px;
+}
+
+.service + .service {
+  border-left: 1px solid var(--svc-line);
+}
+
+.service:first-child { padding-left: 0; }
+.service:last-child { padding-right: 0; }
+
+/* Ícone + número em cima; título e textos por baixo */
+.serviceHead {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  column-gap: 12px;
+  align-items: center;
+  align-content: start;
+}
+
+.serviceHead > * {
+  grid-column: 1 / -1;
+}
+
+.serviceHead > .icon {
+  grid-column: 1;
+  grid-row: 1;
+  margin-bottom: 12px;
+}
+
+.serviceHead > .number {
+  grid-column: 2;
+  grid-row: 1;
+  margin-bottom: 12px;
+}
+
+.number {
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  color: #6ea8ff;
+}
+
+.icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  color: #6ea8ff;
+  background: linear-gradient(180deg, rgba(47, 107, 255, 0.16), rgba(47, 107, 255, 0.04));
+  border: 1px solid rgba(110, 168, 255, 0.22);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+.otherCard .icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+}
+
+.service h2 {
+  font-size: 1.15rem;
+  font-weight: 500;
+  margin-bottom: 6px;
+}
+
+.lead {
+  font-size: 0.88rem;
+  font-weight: 300;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 10px;
+}
+
+.ideal {
+  font-size: 0.78rem;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.ideal strong {
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.price {
+  margin-top: 12px;
+  font-size: 0.82rem;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.price strong {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #fff;
+}
+
+.includes {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.includes li {
+  position: relative;
+  padding-left: 24px;
+  font-size: 0.84rem;
+  font-weight: 300;
+  line-height: 1.45;
+}
+
+.includes li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  top: 1px;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: #2f6bff;
+  font-size: 0.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ===== Secções ===== */
+.section {
+  margin-top: 64px;
+  scroll-margin-top: 24px;
+}
+
+.sectionHead {
+  margin-bottom: 14px;
+}
+
+.sectionHead h2 {
+  font-size: clamp(1.2rem, 2.6vw, 1.5rem);
+  font-weight: 500;
+  margin-bottom: 6px;
+}
+
+.sectionHead p {
+  font-size: 0.88rem;
+  font-weight: 300;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* ===== Outros serviços (colunas lado a lado) ===== */
+.otherGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border-top: 1px solid var(--svc-line);
+  border-bottom: 1px solid var(--svc-line);
+}
+
+.otherCard {
+  display: flex;
+  flex-direction: column;
+  padding: 22px 20px;
+}
+
+.otherCard + .otherCard {
+  border-left: 1px solid var(--svc-line);
+}
+
+.otherCard:first-child { padding-left: 0; }
+.otherCard:last-child { padding-right: 0; }
+
+.otherCard > .icon {
+  margin-bottom: 14px;
+}
+
+.otherCard h3 {
+  font-size: 0.98rem;
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+.otherCard p {
+  font-size: 0.84rem;
+  font-weight: 300;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* ===== Processo (lista numerada) ===== */
+.steps {
+  list-style: none;
+  border-bottom: 1px solid var(--svc-line);
+}
+
+.step {
+  display: grid;
+  grid-template-columns: 40px 160px 1fr;
+  column-gap: 14px;
+  align-items: baseline;
+  padding: 16px 0;
+  border-top: 1px solid var(--svc-line);
+}
+
+.stepNum {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #6ea8ff;
+}
+
+.step h3 {
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.step p {
+  font-size: 0.84rem;
+  font-weight: 300;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* ===== CTA final (sem caixa) ===== */
+.cta {
+  margin-top: 64px;
+  text-align: center;
+}
+
+.cta h2 {
+  font-size: clamp(1.2rem, 2.6vw, 1.55rem);
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+.cta p {
+  font-size: 0.9rem;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.actions {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.btnPrimary,
+.btnSecondary {
+  text-decoration: none;
+  font-size: 0.85rem;
+  padding: 10px 20px;
+  border-radius: 999px;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.btnPrimary {
+  background: #2f6bff;
+  color: #fff;
+}
+
+.btnPrimary:hover {
+  background: #4a80ff;
+  transform: translateY(-2px);
+}
+
+.btnSecondary {
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.btnSecondary:hover {
+  background: rgba(255, 255, 255, 0.08);
+  transform: translateY(-2px);
+}
+
+/* ===== Responsivo ===== */
+@media (max-width: 900px) {
+  .service { padding: 22px 14px; gap: 14px; }
+  .otherCard { padding: 18px 12px; }
+  .service h2 { font-size: 1rem; }
+  .lead { font-size: 0.8rem; }
+  .ideal { font-size: 0.72rem; }
+  .includes li { font-size: 0.78rem; }
+  .otherCard h3 { font-size: 0.9rem; }
+  .otherCard p { font-size: 0.78rem; }
+}
+
+@media (max-width: 760px) {
+  .step { grid-template-columns: 40px 1fr; row-gap: 2px; }
+  .step p { grid-column: 2; }
+}
+
+/* Telemóvel: tudo empilhado na vertical, um por baixo do outro */
+@media (max-width: 600px) {
+  .page { padding: 40px 16px 56px; }
+  .jump { width: auto; margin-left: -16px; margin-right: -16px; padding: 2px 16px; scroll-padding: 0 16px; }
+
+  .mainList,
+  .otherGrid { grid-template-columns: 1fr; }
+
+  .service,
+  .service:first-child,
+  .service:last-child { padding: 22px 0; gap: 14px; }
+
+  .otherCard,
+  .otherCard:first-child,
+  .otherCard:last-child { padding: 18px 0; }
+
+  .service + .service,
+  .otherCard + .otherCard {
+    border-left: 0;
+    border-top: 1px solid var(--svc-line);
+  }
+
+  .service .icon { width: 40px; height: 40px; }
+  .service h2 { font-size: 1.05rem; }
+  .lead { font-size: 0.85rem; }
+  .ideal { font-size: 0.75rem; }
+  .includes li { font-size: 0.82rem; }
+  .otherCard h3 { font-size: 0.95rem; }
+  .otherCard p { font-size: 0.82rem; }
+
+  .step { grid-template-columns: 32px 1fr; column-gap: 12px; }
+  .section, .cta { margin-top: 48px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btnPrimary, .btnSecondary { transition: none; }
+}

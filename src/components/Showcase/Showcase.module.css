@@ -1,0 +1,325 @@
+.section {
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+  padding: 12px 20px 90px;
+  overflow: hidden;
+}
+
+/* ===== Título e slogan ===== */
+.intro {
+  position: relative;
+  isolation: isolate;
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.title {
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  margin-bottom: 14px;
+}
+
+.subtitle {
+  max-width: 520px;
+  margin: 0 auto;
+  font-weight: 300;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* ===== Carrossel: cartões planos lado a lado ===== */
+.carousel {
+  --card-w: clamp(220px, 19vw, 320px);
+  --gap: 18px;
+  position: relative;
+  isolation: isolate;
+  max-width: 1720px;
+  margin: 0 auto;
+}
+
+
+/* Fila com scroll horizontal manual (dedo, trackpad ou arrastar com o rato).
+   Cada cartão encaixa ao centro; as pontas esbatem para mostrar que a fila continua. */
+.stage {
+  position: relative;
+  display: flex;
+  gap: var(--gap);
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  cursor: grab;
+  padding: 6px calc(50% - var(--card-w) / 2) 10px;
+  outline: none;
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 10%, #000 90%, transparent);
+  mask-image: linear-gradient(to right, transparent, #000 10%, #000 90%, transparent);
+}
+
+.stage::-webkit-scrollbar {
+  display: none;
+}
+
+/* Enquanto se arrasta com o rato, o snap fica desligado */
+.dragging {
+  scroll-snap-type: none;
+  cursor: grabbing;
+  user-select: none;
+}
+
+.slide {
+  flex: 0 0 var(--card-w);
+  width: var(--card-w);
+  min-width: 0;
+  scroll-snap-align: center;
+  display: flex;
+  flex-direction: column;
+  padding: 9px; /* espessura da moldura de vidro */
+  border-radius: 26px;
+  cursor: pointer;
+  /* Moldura: vidro com reflexos nos cantos */
+  background:
+    linear-gradient(150deg,
+      rgba(255, 255, 255, 0.32) 0%,
+      rgba(255, 255, 255, 0.08) 30%,
+      rgba(255, 255, 255, 0.04) 60%,
+      rgba(255, 255, 255, 0.22) 100%),
+    rgba(40, 60, 120, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow:
+    inset 0 1px 1px rgba(255, 255, 255, 0.6),
+    inset 0 -1px 1px rgba(255, 255, 255, 0.2),
+    0 18px 40px rgba(0, 0, 0, 0.45);
+  transition: border-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+.slide:hover {
+  border-color: rgba(255, 255, 255, 0.6);
+}
+
+.slideActive {
+  cursor: default;
+  border-color: rgba(255, 255, 255, 0.65);
+  box-shadow:
+    inset 0 1px 1px rgba(255, 255, 255, 0.75),
+    inset 0 -1px 1px rgba(255, 255, 255, 0.25),
+    0 0 0 1px rgba(110, 168, 255, 0.25),
+    0 22px 50px rgba(0, 0, 0, 0.5),
+    0 0 40px rgba(80, 130, 255, 0.2);
+}
+
+/* Painel interior, escuro, encaixado na moldura */
+.cardInner {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 9px;
+  border-radius: 18px;
+  background: rgba(10, 16, 38, 0.94);
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.12),
+    inset 0 3px 10px rgba(0, 0, 0, 0.55);
+}
+
+/* Imagem no topo do cartão */
+.media {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  border-radius: 14px;
+  overflow: hidden;
+  display: flex;
+  background:
+    radial-gradient(circle at 50% 30%, rgba(80, 130, 255, 0.35), transparent 70%),
+    #0a1128;
+}
+
+.media img {
+  user-select: none;
+}
+
+.phone {
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.phone img {
+  height: 92%;
+  width: auto;
+  filter: drop-shadow(0 12px 22px rgba(0, 0, 0, 0.55));
+  transition: transform 0.5s ease;
+}
+
+.slide:hover .phone img {
+  transform: translateY(-4px);
+}
+
+/* Website: capturas em cascata, ligeiramente sobrepostas */
+.site {
+  flex-direction: column;
+  justify-content: center;
+  padding: 10px 12px;
+}
+
+.site img {
+  position: relative;
+  width: 60%;
+  height: auto;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.5);
+}
+
+.site img + img {
+  margin-top: -5%;
+}
+
+.site img:nth-child(1) { align-self: flex-start; z-index: 1; }
+.site img:nth-child(2) { align-self: flex-end;   z-index: 2; }
+.site img:nth-child(3) { align-self: center;     z-index: 3; }
+
+/* Texto por baixo da imagem */
+.info {
+  padding: 14px 6px 6px;
+  transition: opacity 0.4s ease;
+}
+
+.slide:not(.slideActive) .info {
+  opacity: 0.3;
+}
+
+.tag {
+  display: block;
+  font-size: 0.62rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #9fc0ff;
+  margin-bottom: 4px;
+}
+
+.info h2 {
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.info p {
+  font-size: 0.8rem;
+  font-weight: 300;
+  line-height: 1.45;
+  color: rgba(255, 255, 255, 0.65);
+}
+
+/* Pontos */
+.dots {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 14px;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  border: none;
+  padding: 0;
+  background: rgba(255, 255, 255, 0.35);
+  cursor: pointer;
+  transition: width 0.3s ease, background-color 0.3s ease;
+}
+
+.dotActive {
+  width: 24px;
+  background: #fff;
+}
+
+/* Botão Pedir Orçamento entre o slogan e os cartões */
+.introCta {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+/* ===== Botões ===== */
+.actions {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.btnPrimary,
+.btnSecondary {
+  text-decoration: none;
+  font-size: 0.9rem;
+  padding: 12px 24px;
+  border-radius: 999px;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.btnPrimary {
+  background: #2f6bff;
+  color: #fff;
+}
+
+.btnPrimary:hover {
+  background: #4a80ff;
+  transform: translateY(-2px);
+}
+
+.btnSecondary {
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.btnSecondary:hover {
+  background: rgba(255, 255, 255, 0.08);
+  transform: translateY(-2px);
+}
+
+
+
+/* ===== Responsivo ===== */
+@media (max-width: 900px) {
+  .carousel { --card-w: min(64vw, 280px); --gap: 12px; }
+}
+
+@media (max-width: 600px) {
+  .carousel { --card-w: 72vw; --gap: 10px; }
+}
+
+@media (max-width: 600px) {
+  .section { padding: 32px 16px 64px; }
+  .intro { margin-bottom: 24px; }
+
+  .stage {
+    -webkit-mask-image: linear-gradient(to right, transparent, #000 6%, #000 94%, transparent);
+    mask-image: linear-gradient(to right, transparent, #000 6%, #000 94%, transparent);
+  }
+
+  .slide { padding: 7px; border-radius: 22px; }
+  .cardInner { padding: 7px; border-radius: 15px; }
+  .media { border-radius: 11px; }
+  .info { padding: 10px 4px 4px; }
+  .info h2 { font-size: 0.9rem; margin-bottom: 4px; }
+  .info p { font-size: 0.75rem; line-height: 1.45; }
+  .tag { font-size: 0.6rem; }
+
+  /* Título, slogan e botões mais compactos */
+  .title { font-size: 1.25rem; margin-bottom: 8px; }
+  .subtitle { font-size: 0.75rem; max-width: 300px; }
+  .actions { gap: 10px; }
+  .introCta { margin-top: 14px; }
+  .btnPrimary,
+  .btnSecondary { font-size: 0.8rem; padding: 10px 18px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .slide {
+    transition: none !important;
+  }
+}

@@ -1,0 +1,335 @@
+.page {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 32px 20px 64px;
+}
+
+/* Linha fina usada para separar as zonas (igual à página de Serviços) */
+:root {
+  --ct-line: rgba(255, 255, 255, 0.1);
+}
+
+/* ===== Introdução ===== */
+.intro {
+  text-align: center;
+  max-width: 540px;
+  margin: 0 auto 24px;
+}
+
+.eyebrow {
+  display: inline-block;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #6ea8ff;
+  margin-bottom: 10px;
+}
+
+.intro h1 {
+  font-size: clamp(1.5rem, 3.4vw, 2.1rem);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  margin-bottom: 10px;
+}
+
+.intro p {
+  font-size: 0.92rem;
+  font-weight: 300;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* ===== Layout: painel em vidro de cantos arredondados ===== */
+.layout {
+  --ct-line: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-radius: 20px;
+  padding: 4px 32px 12px;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+/* Contactos diretos: 3 colunas lado a lado (WhatsApp · Email · Telefone) */
+.direct {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.card {
+  padding: 24px 0;
+}
+
+.direct .card {
+  padding: 24px;
+}
+
+.direct .card:first-child { padding-left: 0; }
+.direct .card:last-child { padding-right: 0; }
+
+.direct .card + .card {
+  border-left: 1px solid var(--ct-line);
+}
+
+.card h2 {
+  font-size: 0.98rem;
+  font-weight: 500;
+  margin-bottom: 6px;
+}
+
+.icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  color: #6ea8ff;
+  background: linear-gradient(180deg, rgba(47, 107, 255, 0.16), rgba(47, 107, 255, 0.04));
+  border: 1px solid rgba(110, 168, 255, 0.22);
+  margin-bottom: 12px;
+}
+
+.value {
+  display: block;
+  font-size: 0.88rem;
+  font-weight: 300;
+  color: #fff;
+  text-decoration: none;
+  word-break: break-all;
+}
+
+a.value:hover {
+  color: #6ea8ff;
+}
+
+.cardActions {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.phones {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+}
+
+.phones li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.phones li:last-child {
+  border-bottom: none;
+}
+
+.note {
+  margin-top: 8px;
+  font-size: 0.72rem;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+/* ===== Botões ===== */
+.btnSmall,
+.btnGhost {
+  font-family: inherit;
+  font-size: 0.76rem;
+  padding: 6px 13px;
+  border-radius: 999px;
+  text-decoration: none;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.btnSmall {
+  background: #2f6bff;
+  color: #fff;
+  border: none;
+}
+
+.btnSmall:hover {
+  background: #4a80ff;
+  transform: translateY(-1px);
+}
+
+.btnGhost {
+  background: transparent;
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.btnGhost:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* Botão do WhatsApp: verde da marca, por cima do azul do .btnSmall */
+.btnWhatsapp {
+  background: #25d366;
+  color: #0b1a10;
+  font-weight: 500;
+}
+
+.btnWhatsapp:hover {
+  background: #3ee07a;
+}
+
+.btnPrimary {
+  width: 100%;
+  font-family: inherit;
+  font-size: 0.85rem;
+  padding: 11px 20px;
+  border: none;
+  border-radius: 999px;
+  background: #2f6bff;
+  color: #fff;
+  cursor: pointer;
+  margin-top: 4px;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.btnPrimary:hover {
+  background: #4a80ff;
+  transform: translateY(-2px);
+}
+
+/* ===== Formulário ===== */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  border-top: 1px solid var(--ct-line);
+  padding-top: 28px;
+}
+
+.form h2 {
+  margin-bottom: 2px;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.field span {
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.field input,
+.field select,
+.field textarea {
+  font-family: inherit;
+  font-size: 0.85rem;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 10px;
+  padding: 9px 12px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.field textarea {
+  resize: vertical;
+  min-height: 110px;
+}
+
+.field select option {
+  background: #0b1430;
+  color: #fff;
+}
+
+.field input::placeholder,
+.field textarea::placeholder {
+  color: rgba(255, 255, 255, 0.35);
+}
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+  outline: none;
+  border-color: #2f6bff;
+  box-shadow: 0 0 0 3px rgba(47, 107, 255, 0.25);
+}
+
+.btnPrimary:disabled {
+  opacity: 0.6;
+  cursor: wait;
+  transform: none;
+}
+
+/* Campo-armadilha para bots: invisível para pessoas */
+.honeypot {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+
+/* Mensagens de envio */
+.feedback {
+  font-size: 0.8rem;
+  line-height: 1.5;
+  padding: 10px 12px;
+  border-radius: 10px;
+}
+
+.feedback a {
+  color: inherit;
+}
+
+.success {
+  background: rgba(34, 197, 94, 0.12);
+  border: 1px solid rgba(34, 197, 94, 0.4);
+  color: #b6f2cb;
+}
+
+.error {
+  background: rgba(239, 68, 68, 0.12);
+  border: 1px solid rgba(239, 68, 68, 0.4);
+  color: #fecaca;
+}
+
+/* ===== Responsivo ===== */
+@media (max-width: 900px) {
+  .direct .card { padding: 22px 16px; }
+}
+
+/* Ecrãs estreitos: contactos uns por baixo dos outros */
+@media (max-width: 760px) {
+  .direct { grid-template-columns: 1fr; }
+
+  .direct .card,
+  .direct .card:first-child,
+  .direct .card:last-child { padding: 22px 0; }
+
+  .direct .card + .card {
+    border-left: 0;
+    border-top: 1px solid var(--ct-line);
+  }
+}
+
+@media (max-width: 600px) {
+  .page { padding: 24px 16px 48px; }
+  .layout { padding: 0 18px 6px; border-radius: 16px; }
+  .card,
+  .direct .card,
+  .direct .card:first-child,
+  .direct .card:last-child { padding: 20px 0; }
+  .row { grid-template-columns: 1fr; }
+}

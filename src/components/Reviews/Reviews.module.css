@@ -1,0 +1,300 @@
+.section {
+  width: 100%;
+  padding: 20px 20px 90px;
+}
+
+/* Esquerda: avaliações | Direita: botão */
+.inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 48px;
+}
+
+.heading {
+  font-size: clamp(1.3rem, 2.2vw, 1.8rem);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  margin-bottom: 22px;
+}
+
+.empty {
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* ===== Cartões de avaliação ===== */
+.cards {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 16px;
+}
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 22px 20px 18px;
+  border-radius: 20px;
+  background: rgba(10, 16, 38, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.35);
+}
+
+.quote {
+  position: absolute;
+  top: 6px;
+  right: 18px;
+  font-size: 3.4rem;
+  line-height: 1;
+  color: rgba(110, 168, 255, 0.35);
+  font-family: Georgia, serif;
+}
+
+.message {
+  font-size: 0.9rem;
+  font-weight: 300;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.85);
+  overflow-wrap: anywhere;
+}
+
+.author {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-top: auto;
+}
+
+.author strong {
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.author span {
+  font-size: 0.75rem;
+  letter-spacing: 0.04em;
+  color: #9fc0ff;
+}
+
+.date {
+  font-size: 0.7rem;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+/* ===== Botão com efeito vidro ===== */
+.ctaWrap {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.glassBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 18px 28px;
+  border-radius: 999px;
+  font: inherit;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #fff;
+  cursor: pointer;
+  background:
+    linear-gradient(150deg, rgba(255, 255, 255, 0.22), rgba(255, 255, 255, 0.05) 45%, rgba(255, 255, 255, 0.14)),
+    rgba(40, 60, 120, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(14px) saturate(140%);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+  box-shadow:
+    inset 0 1px 1px rgba(255, 255, 255, 0.6),
+    inset 0 -1px 1px rgba(255, 255, 255, 0.15),
+    0 14px 34px rgba(0, 0, 0, 0.4);
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.glassBtn:hover {
+  transform: translateY(-2px);
+  border-color: rgba(255, 255, 255, 0.7);
+  box-shadow:
+    inset 0 1px 1px rgba(255, 255, 255, 0.75),
+    inset 0 -1px 1px rgba(255, 255, 255, 0.2),
+    0 18px 40px rgba(0, 0, 0, 0.45),
+    0 0 30px rgba(80, 130, 255, 0.25);
+}
+
+.glassBtn:focus-visible {
+  outline: 2px solid #6ea8ff;
+  outline-offset: 3px;
+}
+
+.glassIcon {
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #2f6bff;
+  font-size: 0.9rem;
+}
+
+/* ===== Formulário (modal) ===== */
+.dialog {
+  margin: auto;
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: #fff;
+  width: min(460px, calc(100% - 32px));
+  max-height: calc(100% - 32px);
+}
+
+.dialog::backdrop {
+  background: rgba(0, 4, 16, 0.7);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+.dialogBox {
+  position: relative;
+  padding: 28px 24px 24px;
+  border-radius: 24px;
+  background: rgba(10, 16, 38, 0.96);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow:
+    inset 0 1px 1px rgba(255, 255, 255, 0.35),
+    0 30px 70px rgba(0, 0, 0, 0.6);
+}
+
+.close {
+  position: absolute;
+  top: 12px;
+  right: 14px;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+  font-size: 1.4rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.close:hover {
+  background: rgba(255, 255, 255, 0.16);
+}
+
+.form,
+.thanks {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.form h3,
+.thanks h3 {
+  font-size: 1.25rem;
+  font-weight: 500;
+  padding-right: 36px;
+}
+
+.thanks p {
+  font-weight: 300;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.field span {
+  font-size: 0.8rem;
+  letter-spacing: 0.04em;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.field input,
+.field textarea {
+  font: inherit;
+  font-size: 0.95rem;
+  color: #fff;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.05);
+  resize: vertical;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.field input::placeholder,
+.field textarea::placeholder {
+  color: rgba(255, 255, 255, 0.35);
+}
+
+.field input:focus,
+.field textarea:focus {
+  outline: none;
+  border-color: #6ea8ff;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.counter {
+  align-self: flex-end;
+  font-size: 0.7rem;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.error {
+  font-size: 0.85rem;
+  color: #ff8a8a;
+}
+
+.submit {
+  align-self: stretch;
+  font: inherit;
+  font-size: 0.95rem;
+  padding: 13px 24px;
+  border: none;
+  border-radius: 999px;
+  background: #2f6bff;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.submit:hover:not(:disabled) {
+  background: #4a80ff;
+  transform: translateY(-1px);
+}
+
+.submit:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+
+/* ===== Responsivo ===== */
+@media (max-width: 900px) {
+  .inner {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .ctaWrap { justify-content: center; }
+}
+
+@media (max-width: 600px) {
+  .section { padding: 8px 16px 64px; }
+  .heading { font-size: 1.15rem; margin-bottom: 16px; text-align: center; }
+  .empty { text-align: center; font-size: 0.85rem; }
+  .card { padding: 18px 16px 14px; }
+  .message { font-size: 0.82rem; }
+  .glassBtn { font-size: 0.85rem; padding: 14px 22px; }
+  .glassIcon { width: 26px; height: 26px; font-size: 0.8rem; }
+}
