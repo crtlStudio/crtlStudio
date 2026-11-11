@@ -42,8 +42,8 @@ export default function Reviews() {
     if (status === 'sending') return;
     setStatus('sending');
     try {
+      // A avaliação só aparece no site depois de aprovada, por isso não recarregamos a lista
       await submitReview(form);
-      setReviews(await getLatestReviews(3));
       setStatus('sent');
     } catch {
       setStatus('error');
@@ -98,7 +98,7 @@ export default function Reviews() {
           {status === 'sent' ? (
             <div className={styles.thanks}>
               <h3 id="review-form-title">Obrigado pela sua avaliação!</h3>
-              <p>A sua opinião ajuda-nos a melhorar e a chegar a mais pessoas.</p>
+              <p>A sua opinião ajuda-nos a melhorar. Vai aparecer no site assim que for revista.</p>
               <button type="button" className={styles.submit} onClick={closeForm}>Fechar</button>
             </div>
           ) : (

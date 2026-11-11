@@ -272,6 +272,18 @@ a.value:hover {
   transform: none;
 }
 
+/* Aviso de privacidade por cima do botão de envio */
+.privacy {
+  font-size: 0.72rem;
+  font-weight: 300;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.privacy a {
+  color: #6ea8ff;
+}
+
 /* Campo-armadilha para bots: invisível para pessoas */
 .honeypot {
   position: absolute;

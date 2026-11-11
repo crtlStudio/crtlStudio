@@ -6,6 +6,7 @@ import Home from './pages/Home';
 import Services from './pages/Services';
 import Contact from './pages/Contact';
 import Portfolio from './pages/Portfolio';
+import Privacy from './pages/Privacy';
 import Footer from './components/Footer';
 
 // Ao mudar de página, volta ao topo (exceto quando o link aponta para uma secção, ex.: #outros)
@@ -27,6 +28,7 @@ function App() {
           <Route path="/portfolio" element={<Portfolio />} />
           <Route path="/services" element={<Services />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/privacy" element={<Privacy />} />
         </Routes>
       </div>
       <Footer />

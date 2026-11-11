@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import Menu from '../../components/Menu';
 import styles from './Contact.module.css';
 import { EMAIL, PHONES as phones, WHATSAPP } from '../../config/contact';
@@ -163,6 +164,12 @@ export default function Contact() {
               autoComplete="off"
               aria-hidden="true"
             />
+
+            {/* Aviso de privacidade (RGPD) junto ao botão de envio */}
+            <p className={styles.privacy}>
+              Ao enviar, os seus dados são usados apenas para responder ao seu pedido.
+              Saiba mais na nossa <Link to="/privacy">Política de Privacidade</Link>.
+            </p>
 
             <button type="submit" className={styles.btnPrimary} disabled={status === 'sending'}>
               {status === 'sending' ? 'A enviar…' : 'Enviar mensagem'}
