@@ -181,7 +181,7 @@ export default function Services() {
           <p>Fale connosco — a primeira conversa e o orçamento não têm qualquer compromisso.</p>
           <div className={styles.actions}>
             <a href={QUOTE_MAILTO} className={styles.btnPrimary}>Pedir Orçamento</a>
-            <Link to="/portfolio" className={styles.btnSecondary}>Ver Portefólio</Link>
+            <Link to="/portfolio" className={styles.btnSecondary}>Ver Portfólio</Link>
           </div>
         </section>
       </main>

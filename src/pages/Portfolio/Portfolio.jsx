@@ -216,7 +216,7 @@ export default function Portfolio() {
 
       <main className={styles.page}>
         <header className={styles.intro}>
-          <span className={styles.eyebrow}>Portefólio</span>
+          <span className={styles.eyebrow}>Portfólio</span>
           <h1>Projetos que já ganharam vida</h1>
           <p>Alguns dos websites, landing pages e apps que desenvolvemos. Escolha um projeto para ver mais detalhes.</p>
         </header>

@@ -178,7 +178,7 @@ export default function Showcase() {
       </div>
 
       <div className={styles.actions}>
-        <Link to="/portfolio" className={styles.btnSecondary}>Ver Portefólio</Link>
+        <Link to="/portfolio" className={styles.btnSecondary}>Ver Portfólio</Link>
       </div>
     </section>
   );

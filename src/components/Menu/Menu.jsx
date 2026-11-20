@@ -28,7 +28,7 @@ export default function Menu() {
 
         <nav className={`${styles.Menu} ${open ? styles.MenuOpen : ''}`}>
           <NavLink to="/" className={linkClass} onClick={close}>Início</NavLink>
-          <NavLink to="/portfolio" className={linkClass} onClick={close}>Portefólio</NavLink>
+          <NavLink to="/portfolio" className={linkClass} onClick={close}>Portfólio</NavLink>
           <NavLink to="/services" className={linkClass} onClick={close}>Serviços</NavLink>
           <NavLink to="/contact" className={linkClass} onClick={close}>Contactos</NavLink>
         </nav>

@@ -5,7 +5,7 @@ import { EMAIL, PHONES, LINKEDIN } from '../../config/contact';
 
 const pages = [
   { to: '/', label: 'Início' },
-  { to: '/portfolio', label: 'Portefólio' },
+  { to: '/portfolio', label: 'Portfólio' },
   { to: '/services', label: 'Serviços' },
   { to: '/contact', label: 'Contactos' },
 ];
